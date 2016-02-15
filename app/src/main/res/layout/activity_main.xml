@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/text_fram1"
                 android:text="首页"
-                android:textColor="#383737"
+                android:textColor="@color/fram_default"
                 android:layout_gravity="center_horizontal"/>
 
         </LinearLayout>
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/text_fram2"
                 android:text="第二页"
-                android:textColor="#383737"
+                android:textColor="@color/fram_default"
                 android:layout_gravity="center_horizontal"/>
 
         </LinearLayout>
@@ -96,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/text_fram3"
-                android:textColor="#383737"
+                android:textColor="@color/fram_default"
                 android:layout_gravity="center_horizontal"
                 android:text="第三页"/>
 
@@ -120,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/text_fram4"
                 android:text="第四页"
-                android:textColor="#383737"
+                android:textColor="@color/fram_default"
                 android:layout_gravity="center_horizontal"/>
 
         </LinearLayout>

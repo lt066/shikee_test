@@ -1,6 +1,6 @@
 package com.example.administrator.shikee_test.another;
 
-import android.app.DialogFragment;
+import android.support.v4.app.DialogFragment;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;

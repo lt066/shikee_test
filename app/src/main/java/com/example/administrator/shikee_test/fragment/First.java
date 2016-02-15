@@ -1,11 +1,13 @@
 package com.example.administrator.shikee_test.fragment;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -47,22 +49,84 @@ public class First  extends Fragment{
         view = inflater.inflate(R.layout.first_layout,container,false);
 
         //PullToRefreshListView设置
-
+        init();
+        listListener();
 
 
         return view;
     }
 
+
     private void init()
     {
-        mPullToRefreshListView = (PullToRefreshListView) view.findViewById(R.id.first_listview);
-        mPullToRefreshListView.setMode(PullToRefreshBase.Mode.BOTH);
-        myListAdaper = new MyListAdapter(getActivity(),R.layout.listview_item);
 
         mRequestQueue = Volley.newRequestQueue(getActivity());
         stringRequest(initUrl);
 
+        mPullToRefreshListView = (PullToRefreshListView) view.findViewById(R.id.first_listview);
+        mPullToRefreshListView.setMode(PullToRefreshBase.Mode.BOTH);
+        myListAdaper = new MyListAdapter(getActivity(),R.layout.listview_item);
+
+
         myDialogFragment = new MyDialogFragment2();
+        myDialogFragment.show(getFragmentManager(), "");
+
+
+        MyThread myThread0 = new MyThread();
+        myThread0.start();
+
+
+        mPullToRefreshListView.setAdapter(myListAdaper);
+
+
+
+
+
+    }
+
+    private void listListener()
+    {
+        mPullToRefreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+
+            }
+
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+
+            }
+        });
+    }
+
+    class GetDownData extends AsyncTask<Void,Void,String>
+    {
+        @Override
+        protected String doInBackground(Void... params) {
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+        }
+
+
+    }
+
+
+    class GetUpData extends AsyncTask<Void,Void,String>
+    {
+        @Override
+        protected String doInBackground(Void... params) {
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+        }
+
 
     }
 
@@ -76,6 +140,8 @@ public class First  extends Fragment{
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
+                myDialogFragment.dismiss();
 
             }
         }, new Response.ErrorListener() {
@@ -105,6 +171,18 @@ public class First  extends Fragment{
             mimg_url[i]= json_array[i].getString("isrc");
             malbnm[i]= json_array[i].getString("albnm");
             mmsg[i]= json_array[i].getString("msg");
+        }
+
+        if(myListAdaper.getCount()==0 && json_array.length>0)
+        {
+            for (int j=0;j<(json_array.length>=9?10:json_array.length);j++)
+            {
+                myListAdaper.add(new Item_data(malbnm[j], mmsg[j], mimg_url[j]));
+
+            }
+
+            myListAdaper.notifyDataSetChanged();
+
         }
 
     }

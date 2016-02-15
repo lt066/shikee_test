@@ -249,13 +249,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void clearframSetting()
     {
         imgfram1.setImageResource(R.drawable.img_fram1_2);
-        textfram1.setTextColor(0x383737);
+        textfram1.setTextColor(getResources().getColor(R.color.fram_default));
         imgfram2.setImageResource(R.drawable.img_fram2_2);
-        textfram2.setTextColor(0x383737);
+        textfram2.setTextColor(getResources().getColor(R.color.fram_default));
         imgfram3.setImageResource(R.drawable.img_fram3_2);
-        textfram3.setTextColor(0x383737);
+        textfram3.setTextColor(getResources().getColor(R.color.fram_default));
         imgfram4.setImageResource(R.drawable.img_fram4_2);
-        textfram4.setTextColor(0x383737);
+        textfram4.setTextColor(getResources().getColor(R.color.fram_default));
     }
 }
 

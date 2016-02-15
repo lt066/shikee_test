@@ -6,6 +6,8 @@
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/third_listview"/>
+        android:id="@+id/third_listview"
+        android:divider="#8c8c8c"
+        android:dividerPadding="5dp"/>
 
 </LinearLayout>

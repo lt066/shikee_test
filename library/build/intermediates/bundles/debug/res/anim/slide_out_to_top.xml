@@ -19,4 +19,4 @@
     android:duration="@android:integer/config_longAnimTime"
     android:fromYDelta="0"
     android:toYDelta="-100%p" />
-<!-- From: file:/E:/android%20studio/shikee_test/library/src/main/res/anim/slide_out_to_top.xml -->
+<!-- From: file:/F:/Android/project/shikee_test/library/src/main/res/anim/slide_out_to_top.xml -->
